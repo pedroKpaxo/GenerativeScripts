@@ -17,30 +17,32 @@ function setup() {
 
 function draw() {
   background(10);
-  //ortho(-width / 2, width / 2, height / 2, -height / 2, 0, 1000);
-  ortho(-500, 500, 500, -500, 0, 5000);
+
+  // Angle for ortho() projection.
+  let orthoAngle = 500;
+  ortho(-orthoAngle, orthoAngle, orthoAngle, -orthoAngle, 0, 5000);
+
+  // Perspective angles.
   rotateX(QUARTER_PI);
   rotateY(magicangle);
-  
 
-  let offset = 0;
+  let offset = 0; // Creates a offstet fot the z update.
   for (let z = 0; z < height; z += c_width) {
     for (let x = 0; x < width; x += c_width) {
-      push();
-      
-      let angledOffset = angle + offset;
-      let height = map(sin(angledOffset), -1, 1, 100, width);
 
+      let angledOffset = angle + offset;
+      let Zheight = map(sin(angledOffset), -1, 1, 100, width);
+
+      push(); // Bubble the traslate 
       translate(x - hf_width, 0, z - hf_height);
       normalMaterial();
-      sphere(height*0.25)
-      box(c_width - 2, height, c_width - 2);
-
+      sphere(Zheight*0.25)
+      box(c_width - 2, Zheight, c_width - 2);
       pop();
     }
-    offset += 0.12;
+    offset += 0.12; // applY a slightly different update
   }
-  angle += 0.1;
+  angle += 0.1; // main update
 
   // End of draw//
 }

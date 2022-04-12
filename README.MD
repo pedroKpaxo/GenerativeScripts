@@ -19,3 +19,9 @@ Simple nested loop for a line grid
 
 Using a sin function to map height and radius of 3d solids.
 Playing with nested loops and Ortho vision.
+
+# 03_Lines&Heights
+
+[PlasmaGenerator](./PlasmaGenerator)
+
+Messing arround with things and using CCapture to record a video.
